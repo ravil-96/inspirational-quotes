@@ -1,6 +1,17 @@
-const express = require('express')
-const app = express()
-const cors = require('cors');
+//const express = require('express')
+//const app = express()
+//const cors = require('cors');
+const http = require ('http');
+const requestListener = (request,response) => {
+  response.statusCode = 200;
+  response.end('Hello World!');
+};
+
+const host = 'localhost'
+const port = 8000
+
+const server = http.createServer(requestListener);
+server.listen(port, host, ()=> console.log('I am here!'))
 
 quotes = [
   '"PERFECT IS THE ENEMY OF GOOD." –VOLTAIRE',
@@ -22,17 +33,19 @@ quotes = [
 
 function getRandomQuote () {
   return quotes[4]
-}
+} //*
 
-app.use(cors());
+//app.use(cors());
 
-app.get('/', (req, res) => res.send('Hello World!'))
+//app.get('/', (req, res) => res.send('Hello World!'))
 
 // To do: Create a route for retrieving all quotes
 
 // To do: Create a route for retrieving a random quote
 
 // To do: Add handling for out-of-range index
-app.get('/quotes/:index', (req, res) => res.send(quotes[req.params.index]))
+//app.get('/quotes/:index', (req, res) => res.send(quotes[req.params.index]))
 
 // To do: Get the server running
+
+
