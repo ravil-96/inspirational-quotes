@@ -36,9 +36,22 @@ server.get('/Quote', (req, res) => {
 })
 
 // To do: Add handling for out-of-range index
-app.get('/Quote/:index', (req, res) => {
+server.get('/Quote/:index', (req, res) => {
   res.send(quotes[req.params.index])
+})
+server.param('Quote/:index', (req, res, next, id) => {
+  Quote.find(id, function (err, quote) {
+    if (err) {
+      next('out of range index')
+    } else if (quote) {
+      req.quote = quote
+      next()
+    } else {
+      next(new Error('failed to load quote'))
+    }
+  })
 })
 // To do: Get the server running
 
+//Got the server running. Could not fix get request.
 
