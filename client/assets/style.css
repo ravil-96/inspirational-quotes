@@ -20,6 +20,7 @@ section {
   align-items: center;
 }
 
-h3 {
+h1 {
   font-family: 'Dancing Script', 'cursive';
+  text-align: center;
 }
