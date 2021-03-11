@@ -4,7 +4,6 @@ const port = 3000;
 const quotes = require('./data');
 
 const cors = require('cors');
-const express = require('express');
 app.use(cors());
 
 app.use(express.json());
@@ -38,15 +37,17 @@ app.get('/quote/:index', (request, response)=>{
   };
 });
   
-function createNode(element) {
-  return document.createElement(element)
+function grabNode(element) {
+  return document.getElementsByTagName(element)
 };
 
-function append(parent, el) {
-  return parent.appendChild(el);
-}
+//function append(section, newQuote) {
+  //let section = grabNode('section');
 
-module.exports = { createNode, append };
+  //?
+//}
+
+module.exports = { grabNode, append };
 
 // To do: Add handling for out-of-range index
 server.get('/Quote/:index', (req, res) => {
