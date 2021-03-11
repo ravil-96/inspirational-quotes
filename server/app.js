@@ -11,14 +11,15 @@ app.use(express.json());
 
 app.listen(port, () => console.log(`I am here! Find me running on ${port}`));
 
-const randomQuoteID = function giveQuote(array) {
+const index = function giveQuote(array) {
   let index = array[Math.floor(Math.random() * array.length)];
 
   return index;
 }
 
-function getRandomQuote() {
-  return giveQuote(quotes[randomQuoteID]);
+const randomQuote = () => {
+  let randomQuote = quotes[index];
+  return randomQuote;
 }
 
 // To do: Create a route for retrieving all quotes
@@ -29,9 +30,15 @@ app.get('/quote', (request, respose)=>{
 
 // To do: Create a route for retrieving a random quote
 app.get('/quote/:index', (request, response)=>{
-  const quotesData = Number(request.params.getRandomQuote);
-  res.send(quotesData)
-})
+  const quotesData = randomQuote;
+  if (!quotesData) {
+    response.status(500).send('quote does not exist')
+  } else {
+    response.json(quotesData)
+  };
+});
+  
+
 
 
 
