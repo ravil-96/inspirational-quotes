@@ -4,7 +4,7 @@ const port = 3000;
 const quotes = require('./data');
 
 const cors = require('cors');
-const { response } = require('express');
+const express = require('express');
 app.use(cors());
 
 app.use(express.json());
@@ -38,12 +38,15 @@ app.get('/quote/:index', (request, response)=>{
   };
 });
   
+function createNode(element) {
+  return document.createElement(element)
+};
 
+function append(parent, el) {
+  return parent.appendChild(el);
+}
 
-
-
-
-
+module.exports = { createNode, append };
 
 // To do: Add handling for out-of-range index
 server.get('/Quote/:index', (req, res) => {
@@ -62,6 +65,4 @@ server.param('Quote/:index', (req, res, next, id) => {
   })
 })
 // To do: Get the server running
-
-//Got the server running. Could not fix get request.
 

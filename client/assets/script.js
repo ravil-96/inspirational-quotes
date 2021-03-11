@@ -1,6 +1,15 @@
-const form = document.querySelector('form')
+const url = 'http://localhost:3000';
 
-form.addEventListener('submit', getRandomQuote())
+const data = require ('../../server/data')
+const createNode = require ('../../server/app');
+const append = require ('../../server/app'); 
+
+fetch(url)
+.then((resp) => resp.json())
+.then(function(data) {
+
+})
+
 
 function getRandomQuote(e) {
   e.preventDefault()
@@ -8,3 +17,5 @@ function getRandomQuote(e) {
     .then(resp => resp.text)
     .then(document.getElementById('text').innerHTML = quote)
 }
+
+form.addEventListener('submit', getRandomQuote())
