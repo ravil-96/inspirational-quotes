@@ -1,39 +1,42 @@
 const express = require('express');
-const server = express();
-
-const Quote = require('./data');
+const app = express();
+const port = 3000;
+const quotes = require('./data');
 
 const cors = require('cors');
-server.use(cors());
+const { response } = require('express');
+app.use(cors());
 
-const port = 3000
-const host = 'localhost'
+app.use(express.json());
 
-server.listen(port, host, () => {
-  console.log(`I am here! Find me running on http://${host}:${port}`);
-});
+app.listen(port, () => console.log(`I am here! Find me running on ${port}`));
 
-function giveQuote(array) {
-  let quote = array[Math.floor(Math.random() * array.length)];
+const randomQuoteID = function giveQuote(array) {
+  let index = array[Math.floor(Math.random() * array.length)];
 
-  return quote;
+  return index;
 }
 
 function getRandomQuote() {
-  return giveQuote(Quote[quote]);
+  return giveQuote(quotes[randomQuoteID]);
 }
 
 // To do: Create a route for retrieving all quotes
-server.get('/Quote', (req, res) => {
-  const quotesData = Quote.all;
-  res.send(quotesData);
-})
+
+app.get('/quote', (request, respose)=>{
+   response.json(quotes);
+});
 
 // To do: Create a route for retrieving a random quote
-server.get('/Quote', (req, res) => {
-  const quotesData = Quote[quote];
+app.get('/quote/:index', (request, response)=>{
+  const quotesData = Number(request.params.getRandomQuote);
   res.send(quotesData)
 })
+
+
+
+
+
 
 // To do: Add handling for out-of-range index
 server.get('/Quote/:index', (req, res) => {
