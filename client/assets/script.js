@@ -1,12 +1,17 @@
 const url = 'http://localhost:3000';
 
 const data = require ('../../server/data')
-const createNode = require ('../../server/app');
+const grabNode = require ('../../server/app');
 const append = require ('../../server/app'); 
 
 fetch(url)
 .then((resp) => resp.json())
 .then(function(data) {
+  let quotes = data;
+  return quotes.map(function(quote) {
+    let form = grabNode('section');
+    append('section')
+  })
 
 })
 
