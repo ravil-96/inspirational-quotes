@@ -10,14 +10,14 @@ app.use(express.json());
 
 app.listen(port, () => console.log(`I am here! Find me running on ${port}`));
 
-const index = function giveQuote(array) {
-  let index = array[Math.floor(Math.random() * array.length)];
+const index = function giveQuote(quotes) {
+  let index = Math.floor(Math.random() * quotes.length);
 
   return index;
 }
 
 const randomQuote = () => {
-  let randomQuote = quotes[index];
+  let randomQuote = quotes[index()];
   return randomQuote;
 }
 
@@ -47,23 +47,23 @@ function grabNode(element) {
   //?
 //}
 
-module.exports = { grabNode, append };
+// module.exports = { grabNode, append };
 
 // To do: Add handling for out-of-range index
-server.get('/Quote/:index', (req, res) => {
-  res.send(quotes[req.params.index])
-})
-server.param('Quote/:index', (req, res, next, id) => {
-  Quote.find(id, function (err, quote) {
-    if (err) {
-      next('out of range index')
-    } else if (quote) {
-      req.quote = quote
-      next()
-    } else {
-      next(new Error('failed to load quote'))
-    }
-  })
-})
+// server.get('/Quote/:index', (req, res) => {
+//   res.send(quotes[req.params.index])
+// })
+// server.param('Quote/:index', (req, res, next, id) => {
+//   Quote.find(id, function (err, quote) {
+//     if (err) {
+//       next('out of range index')
+//     } else if (quote) {
+//       req.quote = quote
+//       next()
+//     } else {
+//       next(new Error('failed to load quote'))
+//     }
+//   })
+// })
 // To do: Get the server running
 
