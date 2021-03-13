@@ -1,5 +1,5 @@
 body {
-  background-image: url('images/background.jpeg');
+  background-image: url('https://i.imgur.com/Dr3hVMr.jpg');
   background-size: cover;
   background-position: center;
 
@@ -11,7 +11,7 @@ body {
 section {
   background-color: rgba(255, 255, 255, 0.7);
   padding: 20px;
-  width: 50%;
+  width: 80%;
   border-radius: 50px;
 
   display: flex;

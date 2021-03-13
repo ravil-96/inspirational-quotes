@@ -17,16 +17,16 @@ You are going to debug and complete a Random Quotes generator. When you are fini
 
 
 ### Server
-- Install the node modules and get your api server running
-- Use the comments in `app.js` to add the missing routes and improve the `/quotes/:index` route
+-[] Install the node modules and get your api server running
+-[] Use the comments in `app.js` to add the missing routes and improve the `/quotes/:index` route
 
 ![](__demos/app-routes.gif)
 
 ### Client
-- Edit title and button using CSS and HTML so that it looks like the one in the gif (don't worry about exact colour or font size). Feel free to use external fonts.
-- Change the background image and add image credits in the bottom right-hand corner of the page.
-- Clean up any repetitive or unneeded code
-- Debug script.js so that a random quote is shown every time the button is clicked
+-[]Edit title and button using CSS and HTML so that it looks like the one in the gif (don't worry about exact colour or font size). Feel free to use external fonts.
+-[]Change the background image and add image credits in the bottom right-hand corner of the page.
+-[]Clean up any repetitive or unneeded code
+-[]Debug script.js so that a random quote is shown every time the button is clicked
 
 _(You may restructure / add files as you deem necessary)_
 
